@@ -1,0 +1,13 @@
+* {
+  background-color: white;
+  color: grey;
+
+}
+
+h1 {
+  width: 1600px;
+  height: 150px;
+  display: inline-block;
+  background-color: #33d6ff;
+  color: white;
+}

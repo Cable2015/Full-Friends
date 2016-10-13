@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p>Are you sure?</p>
+    {% for friends in all_friends: %}
+    <p>ID: {{ friends['id'] }}</p>
+    <p>First Name: {{ friends['first_name'] }}</p>
+    <p>Last Name: {{ friends['last_name'] }}</p>
+    <p>Occupation: {{ friends['occupation'] }}</p>
+    <form action="/" method="get">
+      <input type="hidden" name="id" value="{{ friends['id'] }}"
+    <p><input type="submit" value="no"></p>
+   </form>
+   <form action="/confirm/friends/{{ friends['id'] }}/delete" method="post">
+     <input type="hidden" name="id" value="{{ friends['id'] }}"
+   <p><input type="submit" value="yes"></p>
+   </form>
+
+    {% endfor %}
+
+
+  </body>
+</html>
