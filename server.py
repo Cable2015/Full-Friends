@@ -13,7 +13,7 @@ def index():
     friends = mysql.query_db("SELECT * FROM friends")
     return render_template('index.html', all_friends=friends )
 
-@app.route('/friends', methods=['POST'])
+@app.route('/friends', methods=['GET', 'POST'])
 def create():
     # Write query as a string. Notice how we have multiple values
     # we want to insert into our query.
@@ -29,7 +29,7 @@ def create():
     return redirect('/')
 
 
-@app.route('/friends/<id>/edit')
+@app.route('/friends/<id>/edit', methods=['GET'])
 def edit(id):
 
     query = "SELECT * FROM friends Where id = :specific_id"
@@ -37,7 +37,7 @@ def edit(id):
     data = {'specific_id': id}
 
     friends = mysql.query_db(query, data)
-    return render_template('update.html', all_friends = friends)
+    return render_template('update.html', friend = friends[0])
 
 @app.route('/friends/<id>', methods=['POST'])
 def update(id):
@@ -62,7 +62,7 @@ def destroy(id):
     mysql.query_db(query, data)
     return redirect('/')
 
-@app.route('/confirm/<id>', methods=['POST'])
+@app.route('/confirm/<id>')
 def confirm(id):
 
     query = "SELECT * FROM friends Where id = :id"

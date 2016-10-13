@@ -7,19 +7,19 @@
   <body>
 
     <h2>Update!</h2>
+    {{friend}}
 
-    {% for friends in all_friends: %}
-    <p>ID: {{ friends['id'] }}</p>
-    <p>First Name: {{ friends['first_name'] }}</p>
-    <p>Last Name: {{ friends['last_name'] }}</p>
-    <p>Occupation: {{ friends['occupation'] }}</p>
-    <form action="/friends/{{ friends['id']}}" method="post">
-      First name: <input type="text" name="first_name"><br>
+    <p>ID: {{ friend['id'] }}</p>
+    <p>First Name: {{ friend['first_name'] }}</p>
+    <p>Last Name: {{ friend['last_name'] }}</p>
+    <p>Occupation: {{ friend['occupation'] }}</p>
+    <form action="/friends/{{ friend['id']}}" method="post">
+      First name: <input type="text" name="first_name" value="{{friend['first_name']}}"><br>
       Last name: <input type="text" name="last_name"><br>
       Occupation: <input type="text" name="occupation"><br>
       <input type="submit" value="Submit">
     </form>
 
-    {% endfor %}
+
   </body>
 </html>

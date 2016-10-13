@@ -20,7 +20,7 @@
      <input type="hidden" name="id" value="{{ friend['id'] }}"
    <p><input type="submit" value="update"></p>
   </form>
-  <form action="/confirm/{{ friend['id'] }}" method="post">
+  <form action="/confirm/{{ friend['id'] }}" method="get">
     <input type="hidden" name="id" value="{{ friend['id'] }}"
   <p><input type="submit" value="delete"></p>
  </form>
